@@ -1,21 +1,51 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>你好，我是 [袁欣] 👋</h1>
-        <img src="images/profile.jpg" alt="个人头像" width="200">
-        <p>欢迎来到我的个人网站！这里展示我的学术经历和设计作品。</p>
+        <div class="hero">
+            <h1>Welcome to My Website</h1>
+            <p>Your tagline goes here</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <nav>
-        <a href="resume.html">📜 学术简历</a>
-        <a href="projects.html">🎨 设计作品</a>
-    </nav>
+    <section id="resume">
+        <h2>Academic Resume</h2>
+        <p>Content of your academic resume goes here.</p>
+    </section>
+
+    <section id="portfolio">
+        <h2>Design Portfolio</h2>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <img src="your-image.jpg" alt="Project 1">
+                <h3>Project 1</h3>
+                <p>Description of the project.</p>
+            </div>
+            <div class="project-card">
+                <img src="your-image.jpg" alt="Project 2">
+                <h3>Project 2</h3>
+                <p>Description of the project.</p>
+            </div>
+            <!-- Repeat for more projects -->
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
