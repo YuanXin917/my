@@ -2,64 +2,130 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: none;
 }
+
+a {
+    color: #007bff; /* 让链接颜色显眼 */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff4500; /* 鼠标悬停时颜色 */
+}
+
+
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
-    color: #333;
-    line-height: 1.6;
+    background-color: black; /* 设置黑色背景 */
+    color: white; /* 让文字变成白色以便于阅读 */
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 50px 0;
+}
+
+
 }
 
 .hero h1 {
     font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .hero p {
     font-size: 1.2rem;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+
+nav {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7); /* 半透明黑色导航栏 */
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 10px 20px;
+    z-index: 1000; /* 确保导航栏在内容之上，但低于 .cursor */
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+#introduction {
+    position: relative;
+    background: url('background.png') no-repeat center center;
+    background-size: cover;
+    width: 100%; /* 设定宽度 */
+    height: 720px; /* 设定高度 */
+    overflow: hidden; /* 避免子元素溢出 */
+    display: flex; /* 使用 flexbox 控制布局 */
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 100px; /* 给两侧留空 */
+}
+/* 渐变遮罩 */
+#introduction::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0));
+    z-index: 0; /* 让遮罩位于底层 */
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+/* 让文本和图片显示在遮罩上层 */
+#introduction .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
-nav ul li a:hover {
-    color: #ff6f61;
+/* 文本区域，占 2/3 */
+#introduction .text {
+    width: 65%;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    line-height: 1.6;
 }
 
-section {
-    padding: 50px;
-    margin: 20px 0;
+/* 关键词 100% 白色 */
+#introduction .text strong {
+    color: rgba(255, 255, 255, 1);
 }
 
-#resume {
-    background-color: #f4f4f4;
+/* heading2 100% 白色 */
+#introduction h2 {
+    color: rgba(255, 255, 255, 1); /* 100% 纯白 */
+    font-size: 2rem; /* 可以适当调整标题大小 */
+    margin-bottom: 20px; /* 添加一些底部间距 */
 }
 
-#portfolio {
-    background-color: #fff;
+
+/* 图片区域，占 1/3，靠右 */
+#introduction .image {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end; /* 让图片靠右 */
 }
+
+/* 限制 me.png 尺寸，防止过大 */
+#introduction .image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* 圆角让图片更美观 */
+}
+
+/*#introduction h2 {
+    background: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    padding: 10px 20px;
+} */
 
 .portfolio-grid {
     display: grid;
@@ -68,22 +134,76 @@ section {
 }
 
 .project-card {
-    background-color: #f4f4f4;
+    display: block;
+    background: #222; /* 让项目卡片有深色背景 */
+    color: white; /* 让文字可见 */
     padding: 20px;
     border-radius: 8px;
     text-align: center;
+    text-decoration: none;
+    position: relative;
 }
 
 .project-card img {
     width: 100%;
-    height: auto;
     border-radius: 8px;
 }
 
+/* 自定义鼠标指针 */
+.cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    background-color: #ff4500;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    z-index: 9999; /* 确保鼠标效果在最上层 */
+}
+
+
+/* 点击放大效果 */
+.click-effect {
+    transform: scale(3);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+/* CV 页面=about me */
+.cv-container {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+#contact {
+    position: relative;
+    background: #2d2e36;
+    background-size: cover;
+    width: 100%; /* 设定宽度 */
+    height: 300px; /* 设定高度 */
+    overflow: hidden; /* 避免子元素溢出 */
+    display: flex; /* 使用 flexbox 控制布局 */
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 100px; /* 给两侧留空 */
+}
+#contact h3 {
+    color: rgba(255, 255, 255, 0.6); /* 60% 纯白 */
+    font-size: 2rem; /* 可以适当调整标题大小 */
+    margin-bottom: 10px; /* 添加一些底部间距 */
+}
+
+/* 限制 me.png 尺寸，防止过大 */
+#contact .image img {
+    max-width: 10%;
+    height: auto;
+}
+
 footer {
+    background: #111;
+    color: white;
     text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    margin-top: 50px;
+    padding: 60px;
 }
