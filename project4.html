@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<script src="script.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>>04 AR Finance Partner</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        a:hover {
+            color: #ff4500;
+        }
+        nav {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);/* 半透明黑色导航栏 */
+            border: 1.6px solid gray;
+            border-radius: 30px;
+            padding: 16px 16px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .logo img {
+            width: 40px;
+            height: auto;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            font-weight: bold;
+        }
+        .cursor {
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="cursor-dot"></div>  <!-- 自定义鼠标光标 -->
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#portfolio">Work</a></li>
+                <li><a href="about.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- 作品展示主体内容 -->
+     <main class="project-container">
+        <section class="project-intro">
+            <h1>04 AR Finance Partner</h1>
+            <p>#AR  #Decision Making  #Finance</p>
+        </section>
+
+        <!-- 静态图片 -->
+        <section class="project-media">
+            <img src="project4/4-1.png" alt="Design Screenshot">
+            <img src="project4/4-2.png" alt="Another Screenshot">
+            <img src="project4/4-3.png" alt="Another Screenshot">
+            <img src="project4/4-4.png" alt="Another Screenshot">
+            <img src="project4/4-5.png" alt="Another Screenshot">
+            <img src="project4/4-6.png" alt="Another Screenshot">
+            <img src="project4/4-7.png" alt="Another Screenshot">
+            <img src="project4/4-8.png" alt="Another Screenshot">
+            <img src="project4/4-9.png" alt="Another Screenshot">
+            <img src="project4/4-10.png" alt="Another Screenshot">
+            <img src="project4/4-11.png" alt="Another Screenshot">
+            <img src="project4/4-12.png" alt="Another Screenshot">
+            <img src="project4/4-13.png" alt="Another Screenshot">
+            <img src="project4/4-14.png" alt="Another Screenshot">
+        </section>
+
+
+        <!-- 视频展示 -->
+        <section class="project-media">
+            <video controls>
+                <source src="project4/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </section>
+
+        <!-- 详细介绍 
+        <section class="project-description">
+            <h2>Concept & Process</h2>
+            <p>The project started with extensive user research...</p>
+        </section>
+        -->
+
+        <!-- 跳转按钮 -->
+        <section class="next-project">
+            <a href="project5.html" class="next-button">Next Project →</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 Xin Yuan.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

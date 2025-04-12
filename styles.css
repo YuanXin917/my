@@ -53,12 +53,17 @@ nav {
     gap: 15px;
 }
 
+.navbar {
+    pointer-events: auto; /* 确保鼠标可以作用在导航栏上 */
+}
+
+
 #introduction {
     position: relative;
     background: url('background.png') no-repeat center center;
     background-size: cover;
     width: 100%; /* 设定宽度 */
-    height: 720px; /* 设定高度 */
+    height: 620px; /* 设定背景图片高度 */
     overflow: hidden; /* 避免子元素溢出 */
     display: flex; /* 使用 flexbox 控制布局 */
     justify-content: space-between;
@@ -73,7 +78,7 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.84), rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
     z-index: 0; /* 让遮罩位于底层 */
 }
 
@@ -118,7 +123,7 @@ nav {
 #introduction .image img {
     max-width: 100%;
     height: auto;
-    border-radius: 10px; /* 圆角让图片更美观 */
+    border-radius: 2px; /* 圆角让图片更美观 */
 }
 
 /*#introduction h2 {
@@ -126,6 +131,12 @@ nav {
     display: inline-block;
     padding: 10px 20px;
 } */
+
+#portfolio {
+    width: 100%; /* 让模块充满整个页面宽度 */
+    padding: 0 2%; /* 左右两侧各留 2% 空白 */
+    box-sizing: border-box; /* 确保 padding 不影响总宽度 */
+}
 
 .portfolio-grid {
     display: grid;
@@ -149,18 +160,38 @@ nav {
     border-radius: 8px;
 }
 
-/* 自定义鼠标指针 */
-.cursor {
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    background-color: #ff4500;
+
+
+/* 默认鼠标光标 */
+#cursor-dot {
+    width: 20px; /* 小圆点 */
+    height: 20px;
+    background-color: #ff4500; /* 填充橙色 */
     border-radius: 50%;
-    pointer-events: none;
+    position: fixed;
     transform: translate(-50%, -50%);
-    transition: transform 0.1s ease;
-    z-index: 9999; /* 确保鼠标效果在最上层 */
+    pointer-events: none;
+    transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out;
+    z-index: 9999 !important; /* 确保光标在所有元素之上 */
 }
+
+/* 悬停时变成大圆形 */
+#cursor-dot.hover {
+    width: 40px; /* 变大 */
+    height: 40px;
+    background-color: rgba(255, 69, 0, 0.8); /* 仍然是橙色 #ff4500 + 80% 透明度  */
+}
+
+
+.project-card {
+    transition: transform 0.3s ease-out; /* 平滑放大动画 */
+}
+
+/* 当鼠标悬停时，卡片放大 20% */
+.project-card:hover {
+    transform: scale(1.1);
+}
+
 
 
 /* 点击放大效果 */
@@ -170,19 +201,14 @@ nav {
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
 
-/* CV 页面=about me */
-.cv-container {
-    height: 100vh;
-    width: 100%;
-    overflow: hidden;
-}
+
 
 #contact {
     position: relative;
     background: #2d2e36;
     background-size: cover;
     width: 100%; /* 设定宽度 */
-    height: 300px; /* 设定高度 */
+    height: 260px; /* 设定高度 */
     overflow: hidden; /* 避免子元素溢出 */
     display: flex; /* 使用 flexbox 控制布局 */
     justify-content: space-between;
@@ -191,14 +217,17 @@ nav {
 }
 #contact h3 {
     color: rgba(255, 255, 255, 0.6); /* 60% 纯白 */
-    font-size: 2rem; /* 可以适当调整标题大小 */
-    margin-bottom: 10px; /* 添加一些底部间距 */
+    font-size: 1.5rem; /* 可以适当调整标题大小 */
+    margin-bottom: 15px; /* 添加一些底部间距 */
 }
 
 /* 限制 me.png 尺寸，防止过大 */
 #contact .image img {
-    max-width: 10%;
+    max-width: 9%;
     height: auto;
+    position: absolute; /* 设置为绝对定位 */
+    top: 70px;           /* 可手动输入位置值 */
+    left: 80%;           /* 可手动输入位置值 */
 }
 
 footer {
@@ -207,3 +236,112 @@ footer {
     text-align: center;
     padding: 60px;
 }
+
+/* CV 页面=about me */
+.cv-container {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.black-bar {
+    width: 100%; /* 宽度自适应 */
+    height: 40px; /* 高度固定为 40px */
+    background-color: black; /* 纯黑色矩形 */
+}
+
+
+
+/* project 1 页面 */
+/* 全局样式 */
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+    margin: 0;
+    padding: 50px;
+}
+
+/* 让内容居中并保持适当空白 */
+.project-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+/* 介绍部分 */
+.project-intro {
+    text-align: center;
+    padding: 30px;
+}
+
+.project-intro h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.project-intro p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* 图片 & 视频区域 */
+.project-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.project-media img,
+.project-media video {
+    width: 100%; /* 让图片/视频自适应 */
+    max-width: 1000px;
+    border-radius: 0px;
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* 详细介绍 */
+.project-description {
+    text-align: left;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.project-description h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.project-description p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* 跳转按钮 */
+.next-project {
+    text-align: center;
+    margin: 60px 0;
+}
+
+.next-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ff4500cc; /* 80%橙色 */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.next-button:hover {
+    transform: scale(1.1);
+    background-color: #f4c7ba;
+}
+

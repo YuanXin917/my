@@ -13,3 +13,24 @@ document.addEventListener('click', () => {
     setTimeout(() => cursor.classList.remove('click-effect'), 300);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const cursorDot = document.getElementById("cursor-dot");
+    const links = document.querySelectorAll("a"); // 获取所有超链接
+
+    // 让鼠标光标跟随
+    document.addEventListener("mousemove", function (e) {
+        cursorDot.style.left = `${e.clientX}px`;
+        cursorDot.style.top = `${e.clientY}px`;
+    });
+
+    // 监听超链接 hover 状态，切换光标大小
+    links.forEach(link => {
+        link.addEventListener("mouseenter", function () {
+            cursorDot.classList.add("hover");
+        });
+        link.addEventListener("mouseleave", function () {
+            cursorDot.classList.remove("hover");
+        });
+    });
+});
+
